@@ -1,155 +1,226 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Regista Agora</title>
+  <!-- Meta Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
 
-<style>
+    fbq('init', '795169496756642');
+    fbq('track', 'PageView');
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=795169496756642&ev=PageView&noscript=1"/>
+  </noscript>
+  <!-- End Meta Pixel Code -->
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial, Helvetica, sans-serif;
-}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Regista Agora</title>
 
-body{
-background:#0b1320;
-color:white;
-text-align:center;
-}
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, Helvetica, sans-serif;
+    }
 
-/* IMAGEM */
-.banner img{
-width:100%;
-display:block;
-}
+    body{
+      background:#0b1320;
+      color:white;
+      text-align:center;
+    }
 
-/* CONTEUDO */
-.container{
-padding:25px 18px 90px;
-}
+    /* IMAGEM */
+    .banner img{
+      width:100%;
+      display:block;
+    }
 
-h1{
-font-size:30px;
-font-weight:900;
-margin-bottom:10px;
-}
+    /* CONTEUDO */
+    .container{
+      padding:25px 18px 90px;
+    }
 
-.green{
-color:#00ff88;
-}
+    h1{
+      font-size:30px;
+      font-weight:900;
+      margin-bottom:10px;
+    }
 
-.bonus{
-font-size:24px;
-font-weight:900;
-color:#ffd700;
-margin-top:10px;
-margin-bottom:15px;
-}
+    .green{
+      color:#00ff88;
+    }
 
-.desc{
-font-size:16px;
-color:#d6d6d6;
-margin-bottom:25px;
-}
+    .bonus{
+      font-size:24px;
+      font-weight:900;
+      color:#ffd700;
+      margin-top:10px;
+      margin-bottom:15px;
+    }
 
-/* BOTAO */
-.btn{
-display:block;
-width:100%;
-background:#00ff88;
-color:#000;
-font-size:24px;
-font-weight:900;
-padding:20px;
-border-radius:14px;
-text-decoration:none;
-box-shadow:0 10px 25px rgba(0,255,136,.35);
-animation:pulse 1.2s infinite;
-}
+    .desc{
+      font-size:16px;
+      color:#d6d6d6;
+      margin-bottom:25px;
+    }
 
-@keyframes pulse{
-0%{transform:scale(1)}
-50%{transform:scale(1.05)}
-100%{transform:scale(1)}
-}
+    /* BOTAO */
+    .btn{
+      display:block;
+      width:100%;
+      background:#00ff88;
+      color:#000;
+      font-size:24px;
+      font-weight:900;
+      padding:20px;
+      border-radius:14px;
+      text-decoration:none;
+      box-shadow:0 10px 25px rgba(0,255,136,.35);
+      animation:pulse 1.2s infinite;
+    }
 
-/* BENEFICIOS */
-.features{
-margin-top:25px;
-font-size:16px;
-line-height:1.8;
-}
+    @keyframes pulse{
+      0%{transform:scale(1)}
+      50%{transform:scale(1.05)}
+      100%{transform:scale(1)}
+    }
 
-.features div{
-margin-bottom:6px;
-}
+    /* BENEFICIOS */
+    .features{
+      margin-top:25px;
+      font-size:16px;
+      line-height:1.8;
+    }
 
-/* BOTAO FIXO */
-.sticky{
-position:fixed;
-bottom:0;
-left:0;
-width:100%;
-background:#0b1320;
-padding:12px;
-box-shadow:0 -6px 20px rgba(0,0,0,.5);
-}
+    .features div{
+      margin-bottom:6px;
+    }
 
-.sticky a{
-display:block;
-background:#00ff88;
-color:#000;
-font-size:22px;
-font-weight:900;
-padding:18px;
-border-radius:10px;
-text-decoration:none;
-}
+    /* BOTAO FIXO */
+    .sticky{
+      position:fixed;
+      bottom:0;
+      left:0;
+      width:100%;
+      background:#0b1320;
+      padding:12px;
+      box-shadow:0 -6px 20px rgba(0,0,0,.5);
+    }
 
-</style>
-
+    .sticky a{
+      display:block;
+      background:#00ff88;
+      color:#000;
+      font-size:22px;
+      font-weight:900;
+      padding:18px;
+      border-radius:10px;
+      text-decoration:none;
+    }
+  </style>
 </head>
 
 <body>
 
-<div class="banner">
-<img src="banner.png">
-</div>
+  <div class="banner">
+    <img src="banner.png" alt="Banner da campanha">
+  </div>
 
-<div class="container">
+  <div class="container">
 
-<h1>
-Plataforma disponível em <span class="green">Moçambique</span>
-</h1>
+    <h1>
+      Plataforma disponível em <span class="green">Moçambique</span>
+    </h1>
 
-<div class="bonus">
-🎁 100% BÓNUS NO PRIMEIRO DEPÓSITO
-</div>
+    <div class="bonus">
+      🎁 100% BÓNUS NO PRIMEIRO DEPÓSITO
+    </div>
 
-<p class="desc">
-Deposita e joga com o dobro. <br> <br>
-A nova casa que jogadores estão a descobrir.
-</p>
+    <p class="desc">
+      Deposita e joga com o dobro. <br><br>
+      A nova casa que jogadores estão a descobrir.
+    </p>
 
-<a href="https://sshortly.net/2304f61" class="btn">
-REGISTAR AGORA
-</a>
+    <a href="https://sshortly.net/2304f61" class="btn" id="mainRegisterBtn">
+      REGISTAR AGORA
+    </a>
 
-<div class="features">
-<div>✅ Depósito por M-Pesa</div>
-<div>✅ Depósito por E-Mola</div>
-<div>✅ Levantamentos rápidos</div>
-<div>✅ Plataforma segura</div>
-</div>
+    <div class="features">
+      <div>✅ Depósito por M-Pesa</div>
+      <div>✅ Depósito por E-Mola</div>
+      <div>✅ Levantamentos rápidos</div>
+      <div>✅ Plataforma segura</div>
+    </div>
 
-</div>
+  </div>
 
-<div class="sticky">
-<a href="https://sshortly.net/2304f61">REGISTAR AGORA</a>
-</div>
+  <div class="sticky">
+    <a href="https://sshortly.net/2304f61" id="stickyRegisterBtn">REGISTAR AGORA</a>
+  </div>
+
+  <script>
+    // =========================
+    // INÍCIO: CONFIGURAÇÃO
+    // =========================
+    const REGISTER_LINK = "https://sshortly.net/2304f61";
+
+    const mainRegisterBtn = document.getElementById("mainRegisterBtn");
+    const stickyRegisterBtn = document.getElementById("stickyRegisterBtn");
+
+    mainRegisterBtn.href = REGISTER_LINK;
+    stickyRegisterBtn.href = REGISTER_LINK;
+    // ======================
+    // FIM: CONFIGURAÇÃO
+    // ======================
+
+    // =========================
+    // INÍCIO: FUNÇÃO DO PIXEL
+    // =========================
+    function trackMetaEvent(eventName, params = {}) {
+      try {
+        if (typeof fbq === "function") {
+          fbq("track", eventName, params);
+        }
+      } catch (error) {
+        console.warn("Erro ao enviar evento do Pixel:", error);
+      }
+    }
+    // ======================
+    // FIM: FUNÇÃO DO PIXEL
+    // ======================
+
+    // ===========================================
+    // INÍCIO: RASTREIO DOS BOTÕES PRINCIPAIS
+    // ===========================================
+    mainRegisterBtn.addEventListener("click", function () {
+      trackMetaEvent("Lead", {
+        page_name: "regista_agora",
+        button_name: "main_register_btn",
+        destination: REGISTER_LINK
+      });
+    });
+
+    stickyRegisterBtn.addEventListener("click", function () {
+      trackMetaEvent("Lead", {
+        page_name: "regista_agora",
+        button_name: "sticky_register_btn",
+        destination: REGISTER_LINK
+      });
+    });
+    // ========================================
+    // FIM: RASTREIO DOS BOTÕES PRINCIPAIS
+    // ========================================
+  </script>
 
 </body>
 </html>
