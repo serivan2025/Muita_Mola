@@ -6,9 +6,15 @@
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
     n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
+    if(!f._fbq)f._fbq=n;
+    n.push=n;
+    n.loaded=!0;
+    n.version='2.0';
+    n.queue=[];
+    t=b.createElement(e);
+    t.async=!0;
+    t.src=v;
+    s=b.getElementsByTagName(e)[0];
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
 
@@ -34,47 +40,95 @@
     }
 
     body{
-      background:#0b1320;
+      background:linear-gradient(180deg,#07101d 0%, #0b1320 100%);
       color:white;
       text-align:center;
     }
 
-    /* IMAGEM */
+    .banner{
+      position:relative;
+    }
+
     .banner img{
       width:100%;
       display:block;
     }
 
-    /* CONTEUDO */
+    .badge-top{
+      position:absolute;
+      top:14px;
+      left:50%;
+      transform:translateX(-50%);
+      background:#ffd700;
+      color:#000;
+      font-weight:900;
+      font-size:13px;
+      padding:8px 14px;
+      border-radius:999px;
+      box-shadow:0 6px 20px rgba(0,0,0,.25);
+      white-space:nowrap;
+    }
+
     .container{
-      padding:25px 18px 90px;
+      padding:22px 18px 110px;
+      max-width:540px;
+      margin:0 auto;
+    }
+
+    .mini-proof{
+      display:inline-block;
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.08);
+      color:#cfe7ff;
+      font-size:13px;
+      padding:8px 12px;
+      border-radius:999px;
+      margin-bottom:16px;
     }
 
     h1{
-      font-size:30px;
+      font-size:32px;
+      line-height:1.15;
       font-weight:900;
-      margin-bottom:10px;
+      margin-bottom:14px;
     }
 
     .green{
       color:#00ff88;
     }
 
-    .bonus{
-      font-size:24px;
-      font-weight:900;
+    .gold{
       color:#ffd700;
-      margin-top:10px;
-      margin-bottom:15px;
     }
 
     .desc{
-      font-size:16px;
-      color:#d6d6d6;
-      margin-bottom:25px;
+      font-size:17px;
+      color:#d9e2f1;
+      line-height:1.6;
+      margin-bottom:18px;
     }
 
-    /* BOTAO */
+    .highlight-box{
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:16px;
+      padding:16px;
+      margin-bottom:18px;
+    }
+
+    .highlight-box .bonus{
+      font-size:25px;
+      font-weight:900;
+      color:#ffd700;
+      margin-bottom:8px;
+    }
+
+    .highlight-box .small{
+      font-size:15px;
+      color:#d6d6d6;
+      line-height:1.5;
+    }
+
     .btn{
       display:block;
       width:100%;
@@ -87,34 +141,79 @@
       text-decoration:none;
       box-shadow:0 10px 25px rgba(0,255,136,.35);
       animation:pulse 1.2s infinite;
+      transition:.2s ease;
+    }
+
+    .btn:active{
+      transform:scale(.98);
     }
 
     @keyframes pulse{
       0%{transform:scale(1)}
-      50%{transform:scale(1.05)}
+      50%{transform:scale(1.04)}
       100%{transform:scale(1)}
     }
 
-    /* BENEFICIOS */
+    .microcopy{
+      margin-top:10px;
+      font-size:13px;
+      color:#b9c7da;
+      line-height:1.5;
+    }
+
+    #liveUsers{
+      margin-top:12px;
+      font-size:14px;
+      color:#9fb3c8;
+      font-weight:700;
+    }
+
     .features{
-      margin-top:25px;
+      margin-top:24px;
+      display:grid;
+      gap:10px;
+      text-align:left;
+    }
+
+    .feature{
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.07);
+      border-radius:14px;
+      padding:14px;
       font-size:16px;
-      line-height:1.8;
+      color:#f3f7ff;
     }
 
-    .features div{
-      margin-bottom:6px;
+    .urgency{
+      margin-top:18px;
+      background:rgba(255,215,0,.12);
+      border:1px solid rgba(255,215,0,.25);
+      color:#ffe588;
+      border-radius:14px;
+      padding:14px;
+      font-size:15px;
+      line-height:1.5;
+      font-weight:700;
     }
 
-    /* BOTAO FIXO */
+    .second-cta{
+      margin-top:22px;
+      font-size:18px;
+      font-weight:900;
+      color:#fff;
+      line-height:1.5;
+    }
+
     .sticky{
       position:fixed;
       bottom:0;
       left:0;
       width:100%;
-      background:#0b1320;
+      background:#08111d;
       padding:12px;
       box-shadow:0 -6px 20px rgba(0,0,0,.5);
+      border-top:1px solid rgba(255,255,255,.06);
+      z-index:1000;
     }
 
     .sticky a{
@@ -126,6 +225,44 @@
       padding:18px;
       border-radius:10px;
       text-decoration:none;
+      max-width:540px;
+      margin:0 auto;
+      box-shadow:0 10px 25px rgba(0,255,136,.25);
+    }
+
+    .popup-notice{
+      position:fixed;
+      bottom:88px;
+      left:50%;
+      transform:translateX(-50%);
+      background:#00ff88;
+      color:#000;
+      padding:12px 18px;
+      border-radius:10px;
+      font-weight:900;
+      z-index:9999;
+      box-shadow:0 8px 25px rgba(0,0,0,.25);
+      max-width:90%;
+    }
+
+    @media (max-width:420px){
+      h1{
+        font-size:28px;
+      }
+
+      .btn,
+      .sticky a{
+        font-size:21px;
+      }
+
+      .desc{
+        font-size:16px;
+      }
+
+      .badge-top{
+        font-size:12px;
+        padding:7px 12px;
+      }
     }
   </style>
 </head>
@@ -134,38 +271,59 @@
 
   <div class="banner">
     <img src="banner.png" alt="Banner da campanha">
+    <div class="badge-top">🔥 Oferta disponível agora em Moçambique</div>
   </div>
 
   <div class="container">
 
+    <div class="mini-proof">✅ Depósito fácil • ✅ Levantamento rápido • ✅ Acesso imediato</div>
+
     <h1>
-      Plataforma disponível em <span class="green">Moçambique</span>
+      Regista-te agora e aproveita o teu <span class="gold">100% bónus</span> no <span class="green">primeiro depósito</span>
     </h1>
 
-    <div class="bonus">
-      🎁 100% BÓNUS NO PRIMEIRO DEPÓSITO
-    </div>
-
     <p class="desc">
-      Deposita e joga com o dobro. <br><br>
-      A nova casa que jogadores estão a descobrir.
+      Entra numa plataforma disponível em Moçambique, com métodos de pagamento que já conheces e um processo de registo rápido.
     </p>
 
-    <a href="https://sshortly.net/2304f61" class="btn" id="mainRegisterBtn">
-      REGISTAR AGORA
+    <div class="highlight-box">
+      <div class="bonus">🎁 100% BÓNUS DE BOAS-VINDAS</div>
+      <div class="small">
+        Faz o teu registo, ativa a tua conta e começa com mais vantagem logo no primeiro depósito.
+      </div>
+    </div>
+
+    <a href="#" class="btn" id="mainRegisterBtn">
+      CRIAR CONTA EM 10 SEGUNDOS
     </a>
 
+    <div class="microcopy">
+      Sem complicação. Clique no botão, cria a tua conta e entra agora.
+    </div>
+
+    <div id="liveUsers">
+      👥 23 pessoas estão a aceder agora
+    </div>
+
     <div class="features">
-      <div>✅ Depósito por M-Pesa</div>
-      <div>✅ Depósito por E-Mola</div>
-      <div>✅ Levantamentos rápidos</div>
-      <div>✅ Plataforma segura</div>
+      <div class="feature">✅ Depósito por <strong>M-Pesa</strong></div>
+      <div class="feature">✅ Depósito por <strong>E-Mola</strong></div>
+      <div class="feature">✅ <strong>Levantamentos rápidos</strong></div>
+      <div class="feature">✅ Plataforma segura e simples de usar</div>
+    </div>
+
+    <div class="urgency">
+      ⚠️ Oferta disponível para novos registos.
+    </div>
+
+    <div class="second-cta">
+      Não fiques de fora. Clica abaixo e cria a tua conta agora.
     </div>
 
   </div>
 
   <div class="sticky">
-    <a href="https://reffpa.com/L?tag=d_5464564m_1599c_&site=5464564&ad=1599" id="stickyRegisterBtn">REGISTAR AGORA</a>
+    <a href="#" id="stickyRegisterBtn">REGISTAR AGORA</a>
   </div>
 
   <script>
@@ -176,9 +334,7 @@
 
     const mainRegisterBtn = document.getElementById("mainRegisterBtn");
     const stickyRegisterBtn = document.getElementById("stickyRegisterBtn");
-
-    mainRegisterBtn.href = REGISTER_LINK;
-    stickyRegisterBtn.href = REGISTER_LINK;
+    const liveUsers = document.getElementById("liveUsers");
     // ======================
     // FIM: CONFIGURAÇÃO
     // ======================
@@ -199,26 +355,66 @@
     // FIM: FUNÇÃO DO PIXEL
     // ======================
 
-    // ===========================================
-    // INÍCIO: RASTREIO DOS BOTÕES PRINCIPAIS
-    // ===========================================
-    mainRegisterBtn.addEventListener("click", function () {
+    // ==========================================
+    // INÍCIO: FUNÇÃO DE REDIRECIONAMENTO
+    // ==========================================
+    function handleRegisterClick(buttonName) {
       trackMetaEvent("Lead", {
         page_name: "regista_agora",
-        button_name: "main_register_btn",
+        button_name: buttonName,
         destination: REGISTER_LINK
       });
+
+      setTimeout(function () {
+        window.location.href = REGISTER_LINK;
+      }, 300);
+    }
+    // =======================================
+    // FIM: FUNÇÃO DE REDIRECIONAMENTO
+    // =======================================
+
+    // ===========================================
+    // INÍCIO: EVENTOS DOS BOTÕES
+    // ===========================================
+    mainRegisterBtn.addEventListener("click", function (e) {
+      e.preventDefault();
+      handleRegisterClick("main_register_btn");
     });
 
-    stickyRegisterBtn.addEventListener("click", function () {
-      trackMetaEvent("Lead", {
-        page_name: "regista_agora",
-        button_name: "sticky_register_btn",
-        destination: REGISTER_LINK
-      });
+    stickyRegisterBtn.addEventListener("click", function (e) {
+      e.preventDefault();
+      handleRegisterClick("sticky_register_btn");
     });
     // ========================================
-    // FIM: RASTREIO DOS BOTÕES PRINCIPAIS
+    // FIM: EVENTOS DOS BOTÕES
+    // ========================================
+
+    // ===========================================
+    // INÍCIO: SIMULAÇÃO DE ACESSOS
+    // ===========================================
+    setInterval(function () {
+      const num = Math.floor(Math.random() * (42 - 18) + 18);
+      liveUsers.innerText = "👥 " + num + " pessoas estão a aceder agora";
+    }, 3000);
+    // ========================================
+    // FIM: SIMULAÇÃO DE ACESSOS
+    // ========================================
+
+    // ===========================================
+    // INÍCIO: POPUP LEVE
+    // ===========================================
+    setTimeout(function () {
+      const popup = document.createElement("div");
+      popup.className = "popup-notice";
+      popup.innerHTML = "🔥 Novos registos a acontecer agora";
+      document.body.appendChild(popup);
+
+      setTimeout(function () {
+        popup.remove();
+      }, 4000);
+    }, 7000);
+    // ========================================
+    // FIM: POPUP LEVE
     // ========================================
   </script>
 
