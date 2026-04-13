@@ -67,10 +67,44 @@
       border-radius:999px;
       box-shadow:0 6px 20px rgba(0,0,0,.25);
       white-space:nowrap;
+      z-index:3;
+    }
+
+    .lang-switcher{
+      position:absolute;
+      top:14px;
+      right:14px;
+      display:flex;
+      gap:8px;
+      z-index:4;
+    }
+
+    .lang-btn{
+      border:none;
+      cursor:pointer;
+      font-weight:900;
+      font-size:12px;
+      padding:8px 10px;
+      border-radius:999px;
+      background:rgba(8,17,29,.88);
+      color:#fff;
+      border:1px solid rgba(255,255,255,.12);
+      transition:.2s ease;
+    }
+
+    .lang-btn:hover{
+      transform:translateY(-1px);
+    }
+
+    .lang-btn.active{
+      background:#00ff88;
+      color:#000;
+      border-color:#00ff88;
+      box-shadow:0 0 16px rgba(0,255,136,.35);
     }
 
     .container{
-      padding:22px 18px 110px;
+      padding:22px 18px 140px;
       max-width:540px;
       margin:0 auto;
     }
@@ -148,10 +182,80 @@
       transform:scale(.98);
     }
 
-    @keyframes pulse{
-      0%{transform:scale(1)}
-      50%{transform:scale(1.04)}
-      100%{transform:scale(1)}
+    .cashout-btn{
+      display:block;
+      width:100%;
+      margin-top:16px;
+      position:relative;
+      background:linear-gradient(135deg,#111827 0%, #1f2937 100%);
+      color:#fff;
+      font-size:22px;
+      font-weight:900;
+      padding:19px 18px;
+      border-radius:16px;
+      text-decoration:none;
+      letter-spacing:.3px;
+      overflow:hidden;
+      isolation:isolate;
+      box-shadow:
+        0 12px 30px rgba(255,100,0,.18),
+        0 0 0 1px rgba(255,180,80,.14) inset;
+      transition:.25s ease;
+      animation:cashoutPulse 1.5s infinite;
+    }
+
+    .cashout-btn::before{
+      content:"";
+      position:absolute;
+      inset:-3px;
+      border-radius:18px;
+      padding:3px;
+      background:
+        conic-gradient(
+          from 0deg,
+          #ffea00,
+          #ff9f1a,
+          #ff5a00,
+          #ff2d00,
+          #ff9f1a,
+          #fff06a,
+          #ff5a00
+        );
+      -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+      -webkit-mask-composite:xor;
+      mask-composite:exclude;
+      animation:fireSpin 2.2s linear infinite;
+      z-index:-1;
+      filter:blur(.4px);
+    }
+
+    .cashout-btn::after{
+      content:"";
+      position:absolute;
+      left:-30%;
+      top:0;
+      width:36%;
+      height:100%;
+      background:linear-gradient(90deg,transparent,rgba(255,255,255,.28),transparent);
+      transform:skewX(-22deg);
+      animation:shineMove 2.8s linear infinite;
+      z-index:0;
+    }
+
+    .cashout-btn .cashout-inner{
+      position:relative;
+      z-index:2;
+      display:block;
+      text-shadow:0 0 10px rgba(255,140,0,.2);
+    }
+
+    .cashout-btn:hover{
+      transform:translateY(-2px) scale(1.01);
+      box-shadow:
+        0 16px 34px rgba(255,90,0,.24),
+        0 0 18px rgba(255,140,0,.22);
     }
 
     .microcopy{
@@ -159,6 +263,14 @@
       font-size:13px;
       color:#b9c7da;
       line-height:1.5;
+    }
+
+    .cashout-microcopy{
+      margin-top:9px;
+      font-size:13px;
+      color:#ffd8b0;
+      line-height:1.5;
+      font-weight:700;
     }
 
     #liveUsers{
@@ -245,6 +357,64 @@
       max-width:90%;
     }
 
+    @keyframes pulse{
+      0%{transform:scale(1)}
+      50%{transform:scale(1.04)}
+      100%{transform:scale(1)}
+    }
+
+    @keyframes cashoutPulse{
+      0%{
+        transform:scale(1);
+      }
+      50%{
+        transform:scale(1.025);
+      }
+      100%{
+        transform:scale(1);
+      }
+    }
+
+    @keyframes fireSpin{
+      0%{
+        transform:rotate(0deg);
+        filter:blur(.4px) brightness(1);
+      }
+      50%{
+        transform:rotate(180deg);
+        filter:blur(1.2px) brightness(1.12);
+      }
+      100%{
+        transform:rotate(360deg);
+        filter:blur(.4px) brightness(1);
+      }
+    }
+
+    @keyframes shineMove{
+      0%{
+        left:-35%;
+      }
+      100%{
+        left:120%;
+      }
+    }
+
+    @media (max-width:520px){
+      .badge-top{
+        top:14px;
+        left:14px;
+        right:92px;
+        transform:none;
+        white-space:normal;
+        text-align:center;
+      }
+
+      .lang-switcher{
+        top:14px;
+        right:14px;
+      }
+    }
+
     @media (max-width:420px){
       h1{
         font-size:28px;
@@ -255,6 +425,11 @@
         font-size:21px;
       }
 
+      .cashout-btn{
+        font-size:19px;
+        padding:18px 14px;
+      }
+
       .desc{
         font-size:16px;
       }
@@ -263,6 +438,11 @@
         font-size:12px;
         padding:7px 12px;
       }
+
+      .lang-btn{
+        font-size:11px;
+        padding:7px 9px;
+      }
     }
   </style>
 </head>
@@ -270,25 +450,32 @@
 <body>
 
   <div class="banner">
-    <img src="banner.png" alt="Banner da campanha">
-    <div class="badge-top">🔥 Oferta disponível agora em Moçambique</div>
+    <img src="banner.png" alt="Banner da campanha" id="bannerImage">
+    <div class="badge-top" id="badgeTop">🔥 Oferta disponível agora em Moçambique</div>
+
+    <div class="lang-switcher">
+      <button type="button" class="lang-btn" id="langPtBtn">PT</button>
+      <button type="button" class="lang-btn" id="langEnBtn">EN</button>
+    </div>
   </div>
 
   <div class="container">
 
-    <div class="mini-proof">✅ Depósito fácil • ✅ Levantamento rápido • ✅ Acesso imediato</div>
+    <div class="mini-proof" id="miniProof">
+      ✅ Depósito fácil • ✅ Levantamento rápido • ✅ Acesso imediato
+    </div>
 
-    <h1>
+    <h1 id="mainTitle">
       Regista-te agora e aproveita o teu <span class="gold">100% bónus</span> no <span class="green">primeiro depósito</span>
     </h1>
 
-    <p class="desc">
+    <p class="desc" id="mainDesc">
       Entra numa plataforma disponível em Moçambique, com métodos de pagamento que já conheces e um processo de registo rápido.
     </p>
 
     <div class="highlight-box">
-      <div class="bonus">🎁 100% BÓNUS DE BOAS-VINDAS</div>
-      <div class="small">
+      <div class="bonus" id="bonusTitle">🎁 100% BÓNUS DE BOAS-VINDAS</div>
+      <div class="small" id="bonusText">
         Faz o teu registo, ativa a tua conta e começa com mais vantagem logo no primeiro depósito.
       </div>
     </div>
@@ -297,8 +484,16 @@
       CRIAR CONTA EM 10 SEGUNDOS
     </a>
 
-    <div class="microcopy">
+    <div class="microcopy" id="mainMicrocopy">
       Sem complicação. Clique no botão, cria a tua conta e entra agora.
+    </div>
+
+    <a href="#" class="cashout-btn" id="cashoutBtn">
+      <span class="cashout-inner" id="cashoutBtnText">🔥 SISTEMA DE CASHOUT GRÁTIS</span>
+    </a>
+
+    <div class="cashout-microcopy" id="cashoutMicrocopy">
+      Acede agora ao sistema e vê a leitura visual de risco em tempo real.
     </div>
 
     <div id="liveUsers">
@@ -306,17 +501,17 @@
     </div>
 
     <div class="features">
-      <div class="feature">✅ Depósito por <strong>M-Pesa</strong></div>
-      <div class="feature">✅ Depósito por <strong>E-Mola</strong></div>
-      <div class="feature">✅ <strong>Levantamentos rápidos</strong></div>
-      <div class="feature">✅ Plataforma segura e simples de usar</div>
+      <div class="feature" id="feature1">✅ Depósito por <strong>M-Pesa</strong></div>
+      <div class="feature" id="feature2">✅ Depósito por <strong>E-Mola</strong></div>
+      <div class="feature" id="feature3">✅ <strong>Levantamentos rápidos</strong></div>
+      <div class="feature" id="feature4">✅ Plataforma segura e simples de usar</div>
     </div>
 
-    <div class="urgency">
+    <div class="urgency" id="urgencyText">
       ⚠️ Oferta disponível para novos registos.
     </div>
 
-    <div class="second-cta">
+    <div class="second-cta" id="secondCta">
       Não fiques de fora. Clica abaixo e cria a tua conta agora.
     </div>
 
@@ -331,12 +526,88 @@
     // INÍCIO: CONFIGURAÇÃO
     // =========================
     const REGISTER_LINK = "https://reffpa.com/L?tag=d_5464564m_1599c_&site=5464564&ad=1599";
+    const CASHOUT_SYSTEM_LINK = "https://serivan2025.github.io/Golden_Time/";
 
     const mainRegisterBtn = document.getElementById("mainRegisterBtn");
     const stickyRegisterBtn = document.getElementById("stickyRegisterBtn");
+    const cashoutBtn = document.getElementById("cashoutBtn");
     const liveUsers = document.getElementById("liveUsers");
+
+    const langPtBtn = document.getElementById("langPtBtn");
+    const langEnBtn = document.getElementById("langEnBtn");
+
+    const badgeTop = document.getElementById("badgeTop");
+    const miniProof = document.getElementById("miniProof");
+    const mainTitle = document.getElementById("mainTitle");
+    const mainDesc = document.getElementById("mainDesc");
+    const bonusTitle = document.getElementById("bonusTitle");
+    const bonusText = document.getElementById("bonusText");
+    const mainMicrocopy = document.getElementById("mainMicrocopy");
+    const cashoutBtnText = document.getElementById("cashoutBtnText");
+    const cashoutMicrocopy = document.getElementById("cashoutMicrocopy");
+    const feature1 = document.getElementById("feature1");
+    const feature2 = document.getElementById("feature2");
+    const feature3 = document.getElementById("feature3");
+    const feature4 = document.getElementById("feature4");
+    const urgencyText = document.getElementById("urgencyText");
+    const secondCta = document.getElementById("secondCta");
     // ======================
     // FIM: CONFIGURAÇÃO
+    // ======================
+
+    // =========================
+    // INÍCIO: TEXTOS BILÍNGUES
+    // =========================
+    const translations = {
+      pt: {
+        badgeTop: "🔥 Oferta disponível agora em Moçambique",
+        miniProof: "✅ Depósito fácil • ✅ Levantamento rápido • ✅ Acesso imediato",
+        mainTitle: 'Regista-te agora e aproveita o teu <span class="gold">100% bónus</span> no <span class="green">primeiro depósito</span>',
+        mainDesc: "Entra numa plataforma disponível em Moçambique, com métodos de pagamento que já conheces e um processo de registo rápido.",
+        bonusTitle: "🎁 100% BÓNUS DE BOAS-VINDAS",
+        bonusText: "Faz o teu registo, ativa a tua conta e começa com mais vantagem logo no primeiro depósito.",
+        mainRegisterBtn: "CRIAR CONTA EM 10 SEGUNDOS",
+        mainMicrocopy: "Sem complicação. Clique no botão, cria a tua conta e entra agora.",
+        cashoutBtnText: "🔥 SISTEMA DE CASHOUT GRÁTIS",
+        cashoutMicrocopy: "Acede agora ao sistema e vê a leitura visual de risco em tempo real.",
+        feature1: '✅ Depósito por <strong>M-Pesa</strong>',
+        feature2: '✅ Depósito por <strong>E-Mola</strong>',
+        feature3: '✅ <strong>Levantamentos rápidos</strong>',
+        feature4: "✅ Plataforma segura e simples de usar",
+        urgencyText: "⚠️ Oferta disponível para novos registos.",
+        secondCta: "Não fiques de fora. Clica abaixo e cria a tua conta agora.",
+        stickyRegisterBtn: "REGISTAR AGORA",
+        popupNotice: "🔥 Novos registos a acontecer agora",
+        liveUsers: (num) => `👥 ${num} pessoas estão a aceder agora`,
+        documentLang: "pt"
+      },
+      en: {
+        badgeTop: "🔥 Offer available now in Mozambique",
+        miniProof: "✅ Easy deposit • ✅ Fast withdrawals • ✅ Instant access",
+        mainTitle: 'Register now and enjoy your <span class="gold">100% bonus</span> on your <span class="green">first deposit</span>',
+        mainDesc: "Join a platform available in Mozambique, with payment methods you already know and a quick registration process.",
+        bonusTitle: "🎁 100% WELCOME BONUS",
+        bonusText: "Create your account, activate it and start with more advantage from your very first deposit.",
+        mainRegisterBtn: "CREATE ACCOUNT IN 10 SECONDS",
+        mainMicrocopy: "No complications. Click the button, create your account and get in now.",
+        cashoutBtnText: "🔥 FREE CASHOUT SYSTEM",
+        cashoutMicrocopy: "Access the system now and see the visual risk reading in real time.",
+        feature1: '✅ Deposit with <strong>M-Pesa</strong>',
+        feature2: '✅ Deposit with <strong>E-Mola</strong>',
+        feature3: '✅ <strong>Fast withdrawals</strong>',
+        feature4: "✅ Secure and easy-to-use platform",
+        urgencyText: "⚠️ Offer available for new registrations.",
+        secondCta: "Do not miss out. Click below and create your account now.",
+        stickyRegisterBtn: "REGISTER NOW",
+        popupNotice: "🔥 New registrations happening right now",
+        liveUsers: (num) => `👥 ${num} people are accessing now`,
+        documentLang: "en"
+      }
+    };
+
+    let currentLanguage = "pt";
+    // ======================
+    // FIM: TEXTOS BILÍNGUES
     // ======================
 
     // =========================
@@ -356,17 +627,102 @@
     // ======================
 
     // ==========================================
+    // INÍCIO: FUNÇÃO DE APLICAR TRADUÇÃO
+    // ==========================================
+    function applyLanguage(lang) {
+      const safeLang = translations[lang] ? lang : "pt";
+      currentLanguage = safeLang;
+
+      const t = translations[safeLang];
+
+      document.documentElement.lang = t.documentLang;
+
+      badgeTop.innerHTML = t.badgeTop;
+      miniProof.innerHTML = t.miniProof;
+      mainTitle.innerHTML = t.mainTitle;
+      mainDesc.innerHTML = t.mainDesc;
+      bonusTitle.innerHTML = t.bonusTitle;
+      bonusText.innerHTML = t.bonusText;
+      mainRegisterBtn.innerHTML = t.mainRegisterBtn;
+      mainMicrocopy.innerHTML = t.mainMicrocopy;
+      cashoutBtnText.innerHTML = t.cashoutBtnText;
+      cashoutMicrocopy.innerHTML = t.cashoutMicrocopy;
+      feature1.innerHTML = t.feature1;
+      feature2.innerHTML = t.feature2;
+      feature3.innerHTML = t.feature3;
+      feature4.innerHTML = t.feature4;
+      urgencyText.innerHTML = t.urgencyText;
+      secondCta.innerHTML = t.secondCta;
+      stickyRegisterBtn.innerHTML = t.stickyRegisterBtn;
+
+      langPtBtn.classList.toggle("active", safeLang === "pt");
+      langEnBtn.classList.toggle("active", safeLang === "en");
+
+      updateLiveUsersText();
+      localStorage.setItem("site_language", safeLang);
+    }
+    // =======================================
+    // FIM: FUNÇÃO DE APLICAR TRADUÇÃO
+    // =======================================
+
+    // ==========================================
+    // INÍCIO: FUNÇÃO DE DETECTAR IDIOMA
+    // ==========================================
+    function getInitialLanguage() {
+      const savedLanguage = localStorage.getItem("site_language");
+      if (savedLanguage && translations[savedLanguage]) {
+        return savedLanguage;
+      }
+
+      const browserLanguage = (navigator.language || navigator.userLanguage || "pt").toLowerCase();
+
+      if (browserLanguage.startsWith("en")) {
+        return "en";
+      }
+
+      return "pt";
+    }
+    // =======================================
+    // FIM: FUNÇÃO DE DETECTAR IDIOMA
+    // =======================================
+
+    // ==========================================
+    // INÍCIO: FUNÇÃO DE TEXTO DE ACESSOS
+    // ==========================================
+    function updateLiveUsersText() {
+      const num = parseInt(liveUsers.getAttribute("data-count"), 10) || 23;
+      liveUsers.innerText = translations[currentLanguage].liveUsers(num);
+    }
+    // =======================================
+    // FIM: FUNÇÃO DE TEXTO DE ACESSOS
+    // =======================================
+
+    // ==========================================
     // INÍCIO: FUNÇÃO DE REDIRECIONAMENTO
     // ==========================================
     function handleRegisterClick(buttonName) {
       trackMetaEvent("Lead", {
         page_name: "regista_agora",
         button_name: buttonName,
-        destination: REGISTER_LINK
+        destination: REGISTER_LINK,
+        language: currentLanguage
       });
 
       setTimeout(function () {
         window.location.href = REGISTER_LINK;
+      }, 300);
+    }
+
+    function handleCashoutClick() {
+      trackMetaEvent("ViewContent", {
+        page_name: "regista_agora",
+        button_name: "cashout_system_btn",
+        destination: CASHOUT_SYSTEM_LINK,
+        language: currentLanguage
+      });
+
+      setTimeout(function () {
+        window.location.href = CASHOUT_SYSTEM_LINK;
       }, 300);
     }
     // =======================================
@@ -385,6 +741,19 @@
       e.preventDefault();
       handleRegisterClick("sticky_register_btn");
     });
+
+    cashoutBtn.addEventListener("click", function (e) {
+      e.preventDefault();
+      handleCashoutClick();
+    });
+
+    langPtBtn.addEventListener("click", function () {
+      applyLanguage("pt");
+    });
+
+    langEnBtn.addEventListener("click", function () {
+      applyLanguage("en");
+    });
     // ========================================
     // FIM: EVENTOS DOS BOTÕES
     // ========================================
@@ -392,9 +761,12 @@
     // ===========================================
     // INÍCIO: SIMULAÇÃO DE ACESSOS
     // ===========================================
+    liveUsers.setAttribute("data-count", "23");
+
     setInterval(function () {
       const num = Math.floor(Math.random() * (42 - 18) + 18);
-      liveUsers.innerText = "👥 " + num + " pessoas estão a aceder agora";
+      liveUsers.setAttribute("data-count", String(num));
+      updateLiveUsersText();
     }, 3000);
     // ========================================
     // FIM: SIMULAÇÃO DE ACESSOS
@@ -406,7 +778,7 @@
     setTimeout(function () {
       const popup = document.createElement("div");
       popup.className = "popup-notice";
-      popup.innerHTML = "🔥 Novos registos a acontecer agora";
+      popup.innerHTML = translations[currentLanguage].popupNotice;
       document.body.appendChild(popup);
 
       setTimeout(function () {
@@ -415,6 +787,14 @@
     }, 7000);
     // ========================================
     // FIM: POPUP LEVE
+    // ========================================
+
+    // ===========================================
+    // INÍCIO: INICIALIZAÇÃO
+    // ===========================================
+    applyLanguage(getInitialLanguage());
+    // ========================================
+    // FIM: INICIALIZAÇÃO
     // ========================================
   </script>
 
