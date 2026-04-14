@@ -532,6 +532,7 @@
     const stickyRegisterBtn = document.getElementById("stickyRegisterBtn");
     const cashoutBtn = document.getElementById("cashoutBtn");
     const liveUsers = document.getElementById("liveUsers");
+    const bannerImage = document.getElementById("bannerImage");
 
     const langPtBtn = document.getElementById("langPtBtn");
     const langEnBtn = document.getElementById("langEnBtn");
@@ -560,6 +561,8 @@
     // =========================
     const translations = {
       pt: {
+        bannerSrc: "banner.png",
+        bannerAlt: "Banner da campanha",
         badgeTop: "🔥 Oferta disponível agora em Moçambique",
         miniProof: "✅ Depósito fácil • ✅ Levantamento rápido • ✅ Acesso imediato",
         mainTitle: 'Regista-te agora e aproveita o teu <span class="gold">100% bónus</span> no <span class="green">primeiro depósito</span>',
@@ -582,20 +585,22 @@
         documentLang: "pt"
       },
       en: {
-        badgeTop: "🔥 Offer available now in Mozambique",
+        bannerSrc: "banner01.png",
+        bannerAlt: "Campaign banner",
+        badgeTop: "🔥 Offer available now in South Africa (SA)",
         miniProof: "✅ Easy deposit • ✅ Fast withdrawals • ✅ Instant access",
         mainTitle: 'Register now and enjoy your <span class="gold">100% bonus</span> on your <span class="green">first deposit</span>',
-        mainDesc: "Join a platform available in Mozambique, with payment methods you already know and a quick registration process.",
+        mainDesc: "Join a platform available in South Africa (SA), with payment methods you already know and a quick registration process.",
         bonusTitle: "🎁 100% WELCOME BONUS",
         bonusText: "Create your account, activate it and start with more advantage from your very first deposit.",
         mainRegisterBtn: "CREATE ACCOUNT IN 10 SECONDS",
         mainMicrocopy: "No complications. Click the button, create your account and get in now.",
         cashoutBtnText: "🔥 FREE CASHOUT SYSTEM",
         cashoutMicrocopy: "Access the system now and see the visual risk reading in real time.",
-        feature1: '✅ Deposit with <strong>M-Pesa</strong>',
-        feature2: '✅ Deposit with <strong>E-Mola</strong>',
-        feature3: '✅ <strong>Fast withdrawals</strong>',
-        feature4: "✅ Secure and easy-to-use platform",
+        feature1: '✅ Deposit via <strong>Instant EFT</strong>',
+        feature2: '✅ Deposit via <strong>OZOW</strong>',
+        feature3: '✅ Deposit with <strong>Visa / Mastercard</strong>',
+        feature4: "✅ Trusted platform used in South Africa",
         urgencyText: "⚠️ Offer available for new registrations.",
         secondCta: "Do not miss out. Click below and create your account now.",
         stickyRegisterBtn: "REGISTER NOW",
@@ -636,6 +641,9 @@
       const t = translations[safeLang];
 
       document.documentElement.lang = t.documentLang;
+
+      bannerImage.src = t.bannerSrc;
+      bannerImage.alt = t.bannerAlt;
 
       badgeTop.innerHTML = t.badgeTop;
       miniProof.innerHTML = t.miniProof;
